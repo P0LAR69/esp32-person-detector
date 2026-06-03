@@ -53,39 +53,5 @@ Este proyecto envía fotos capturadas por el ESP32 a un servidor web. A continua
 #### Opción más fácil (Node.js + Express)
 
 1. Crea un nuevo repositorio en GitHub con el nombre que prefieras para el caso `esp32-person-detector-server`
-2. Crea los siguientes archivos:
-
-**`index.js`**
-```javascript
-const express = require('express');
-const cors = require('cors');
-const app = express();
-
-app.use(cors());
-app.use(express.json({ limit: '10mb' })); // Para recibir Base64 grande
-
-app.post('/detect', (req, res) => {
-  const { image } = req.body;   // Imagen en Base64
-
-  if (!image) {
-    return res.status(400).json({ error: "No se recibió imagen" });
-  }
-
-  console.log("✅ Imagen recibida - Tamaño:", image.length, "caracteres");
-
-  // Aquí puedes agregar lógica de IA (TensorFlow.js, detección de personas, etc.)
-  // Por ahora solo confirmamos recepción
-  res.json({
-    status: "success",
-    message: "Imagen recibida correctamente",
-    timestamp: new Date().toISOString(),
-    size: image.length
-  });
-});
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`🚀 Servidor corriendo en puerto ${PORT}`);
-});
-´´´
+2. Usa app.py es donde se realiza la detección
 
