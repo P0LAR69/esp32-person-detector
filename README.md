@@ -1,5 +1,6 @@
 # ESP32 Detector de Personas con Cámara + Servidor
-
+**Autor:** Jonathan Cabrera  
+**Estado:** Funcional  
 Sistema de detección de movimiento con cámara ESP32 que envía fotos a un servidor web cuando detecta personas.
 
 ## Características
@@ -86,5 +87,5 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`🚀 Servidor corriendo en puerto ${PORT}`);
 });
-**Autor:** Jonathan Cabrera  
-**Estado:** Funcional  
+´´´
+
